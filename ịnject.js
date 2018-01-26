@@ -61,11 +61,12 @@ function getUrlParameter(sParam) {
     }
 }
 
-$(document).ready(function(){
-    var currentTab = getUrlParameter("currentTab");
-    
-    $('.next-table-header-inner').append('<input type="text" id="myNameInput" placeholder="Filter name"><input type="text" id="myQuantityInput" placeholder="Filter quantity">');
-    
+window.addEventListener('load', function(){
+	// Everything has loaded!
+  	console.log('Everything has loaded!');
+
+    $('.next-tabs-bar').append('<input type="text" id="myNameInput" placeholder="Filter name"><input type="text" id="myQuantityInput" placeholder="Filter quantity">');
+
     $("#myNameInput").keyup(function(){
         var inputVal = $("#myNameInput").val();
         console.log('name changed : ', inputVal);
@@ -83,6 +84,7 @@ $(document).ready(function(){
         filterName(inputVal);
     });
 
+	var currentTab = getUrlParameter("currentTab");
     $("#myQuantityInput").keyup(function(){
         var inputVal = $("#myQuantityInput").val();
         console.log('quantity changed : ', inputVal);
