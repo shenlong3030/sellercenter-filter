@@ -66,7 +66,7 @@ window.addEventListener('load', function(){
   	console.log('Everything has loaded!');
 
     $('.next-tabs-bar').append('<input type="text" id="myNameInput" placeholder="Filter name"><input type="text" id="myQuantityInput" placeholder="Filter quantity">');
-
+    $('.next-tabs-bar').append(createExpandAllButton());
     $("#myNameInput").keyup(function(){
         var inputVal = $("#myNameInput").val();
         console.log('name changed : ', inputVal);
@@ -102,3 +102,18 @@ window.addEventListener('load', function(){
         }
     });
 })
+
+
+function createExpandAllButton() {
+    return $('<button/>', {
+        text: 'Expand all orders',
+        id: 'btn_expand',
+        click: expandAll
+    });
+}
+
+
+function expandAll() {
+    $('.next-table-expanded-ctrl').trigger('click');
+    $('.next-table-expanded-row').show();
+}
