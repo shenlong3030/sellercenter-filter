@@ -67,6 +67,7 @@ window.addEventListener('load', function(){
 
     $('.next-tabs-bar').append('<input type="text" id="myNameInput" placeholder="Filter name"><input type="text" id="myQuantityInput" placeholder="Filter quantity">');
     $('.next-tabs-bar').append(createExpandAllButton());
+    $('.next-tabs-bar').append(createExtractSKUsButton());
     $("#myNameInput").keyup(function(){
         var inputVal = $("#myNameInput").val();
         console.log('name changed : ', inputVal);
@@ -116,4 +117,21 @@ function createExpandAllButton() {
 function expandAll() {
     $('.next-table-expanded-ctrl').trigger('click');
     $('.next-table-expanded-row').show();
+}
+
+function createExtractSKUsButton() {
+    return $('<button/>', {
+        text: 'Extract SKUs',
+        id: 'btn_expand',
+        click: extractSKUs
+    });
+}
+
+function extractSKUs() {
+    var values = [];
+    $('table .first+ .next-table-cell .next-table-cell-wrapper').each( function() {
+        values.push($(this).text());
+    });
+
+    prompt("Copy to clipboard: Ctrl+C, Enter", values.join("\r\n"));
 }
