@@ -65,9 +65,9 @@ window.addEventListener('load', function(){
 	// Everything has loaded!
   	console.log('Everything has loaded!');
 
-    $('.next-tabs-bar').append('<input type="text" id="myNameInput" placeholder="Filter name"><input type="text" id="myQuantityInput" placeholder="Filter quantity">');
-    $('.next-tabs-bar').append(createExpandAllButton());
-    $('.next-tabs-bar').append(createExtractSKUsButton());
+    $('.g-toolbar.g-wrap-row').append('<input type="text" id="myNameInput" placeholder="Filter name"><input type="text" id="myQuantityInput" placeholder="Filter quantity">');
+    $('.g-toolbar.g-wrap-row').append(createExpandAllButton());
+    $('.g-toolbar.g-wrap-row').append(createExtractSKUsButton());
     $("#myNameInput").keyup(function(){
         var inputVal = $("#myNameInput").val();
         console.log('name changed : ', inputVal);
